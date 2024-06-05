@@ -48,6 +48,9 @@
         ],
         "test": [
             "@php artisan test"
+        ],
+        "test-coverage": [
+            "@php artisan test --coverage-html reports"
         ]
     },
     "extra": {

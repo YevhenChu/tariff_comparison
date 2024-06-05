@@ -64,3 +64,7 @@ logs:
 test:
 	@docker compose exec php bash -c "php artisan view:clear"
 	@docker compose run php bash -c "composer test"
+
+test-coverage:
+	@docker compose exec php bash -c "php artisan view:clear"
+	@docker compose run php bash -c "composer test-coverage"

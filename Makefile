@@ -7,7 +7,7 @@ MYSQL_DUMPS_DIR=data/db/dumps
 
 
 .DEFAULT_GOAL=help
-# WWW_USER_ID=${shell id -u}
+
 WWW_USER_ID=${id -u}
 PHP_CONTAINER=$(shell docker compose ps -q php 2> /dev/null)
 MYSQL_CONTAINER=$(shell docker compose ps -q mysqldb 2> /dev/null)

@@ -6,11 +6,10 @@
 
 FROM php:8.2-fpm
 
-WORKDIR /var/www/html
-
-# Define default env variables
+# Create the main user
 ARG WWW_USER_ID
 ENV WWW_UID=${WWW_USER_ID:-1000}
+RUN useradd -ms /bin/bash -u ${WWW_UID} app
 
 # Set Environment Variables
 ENV DEBIAN_FRONTEND noninteractive
@@ -75,3 +74,8 @@ RUN pecl install xdebug-3.2.2 \
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /var/www/html
+
+USER app
+
